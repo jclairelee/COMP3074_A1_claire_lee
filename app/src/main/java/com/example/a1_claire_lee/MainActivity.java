@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvTotalPay;
     private TextView tvTax;
 
+    private final NumberFormat currency = NumberFormat.getCurrencyInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +64,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         double tax = totalPay * 0.18;
-
+        //  Update UI
         tvPay.setText(getString(R.string.pay_label) + currency.format(basePay));
         tvOvertimePay.setText(getString(R.string.overtime_pay_label) + currency.format(overtimePay));
         tvTotalPay.setText(getString(R.string.total_pay_label) + currency.format(totalPay));
         tvTax.setText(getString(R.string.tax_label) + currency.format(tax));
 
+        //  Log to repo
         PaymentsRepo.add(new Payment(hours, rate, basePay, overtimePay, totalPay, tax));
+
         Toast.makeText(this, getString(R.string.msg_logged), Toast.LENGTH_SHORT).show();
     }
 
