@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Payment Logger</string>
+    <string name="title_detail">Payment History</string>
+    <string name="hours_worked">Number of hours worked</string>
+    <string name="hourly_rate">Hourly rate</string>
+    <string name="calc_and_log">Calculate &amp; Log</string>
+    <string name="menu_history">View Payment History</string>
+
+    <string name="pay_label">Pay (first 40h): </string>
+    <string name="overtime_pay_label">Overtime pay: </string>
+    <string name="total_pay_label">Total pay: </string>
+    <string name="tax_label">Tax (18%): </string>
+
+    <string name="msg_invalid">Invalid input. Enter positive numbers for hours and rate.</string>
+    <string name="msg_logged">Payment calculated and logged.</string>
+</resources>
