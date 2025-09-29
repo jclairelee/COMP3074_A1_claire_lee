@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvTotalPay;
     private TextView tvTax;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,14 +64,32 @@ public class MainActivity extends AppCompatActivity {
 
         double tax = totalPay * 0.18;
 
+        tvPay.setText(getString(R.string.pay_label) + currency.format(basePay));
+        tvOvertimePay.setText(getString(R.string.overtime_pay_label) + currency.format(overtimePay));
+        tvTotalPay.setText(getString(R.string.total_pay_label) + currency.format(totalPay));
+        tvTax.setText(getString(R.string.tax_label) + currency.format(tax));
+
+        PaymentsRepo.add(new Payment(hours, rate, basePay, overtimePay, totalPay, tax));
         Toast.makeText(this, getString(R.string.msg_logged), Toast.LENGTH_SHORT).show();
     }
 
     private static Double parseDouble(String s) {
-        try {
-            return Double.parseDouble(s.trim());
-        } catch (Exception e) {
-            return null;
+        try { return Double.parseDouble(s.trim()); } catch (Exception e) { return null; }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu); // contains action_history
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_history) {
+            startActivity(new Intent(this, DetailActivity.class));
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 }
+
