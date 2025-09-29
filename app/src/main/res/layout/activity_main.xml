@@ -5,63 +5,90 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:padding="16dp"
+        android:padding="20dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Inputs -->
         <EditText
             android:id="@+id/etHours"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/hours_worked"
             android:inputType="numberDecimal"
-            android:hint="@string/hours_worked"/>
+            android:imeOptions="actionNext"
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text"/>
 
         <EditText
             android:id="@+id/etRate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
             android:hint="@string/hourly_rate"
-            android:layout_marginTop="12dp"/>
+            android:inputType="numberDecimal"
+            android:imeOptions="actionDone"
+            android:layout_marginTop="12dp"
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text"/>
 
+        <!-- Button with hardcoded style -->
         <Button
             android:id="@+id/btnCalculate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/calc_and_log"
-            android:layout_marginTop="16dp"/>
+            android:textColor="@android:color/white"
+            android:background="#673AB7"
+            android:paddingVertical="14dp"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:fontFamily="sans-serif-medium"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#DDDDDD"
-            android:layout_marginVertical="16dp"/>
 
-        <TextView
-            android:id="@+id/tvPay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/pay_label"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/tvOvertimePay"
+        <!-- Results grouped in a container -->
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/overtime_pay_label"/>
+            android:padding="16dp"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:layout_marginTop="20dp">
 
-        <TextView
-            android:id="@+id/tvTotalPay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/total_pay_label"/>
+            <TextView
+                android:id="@+id/tvPay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pay_label"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
 
-        <TextView
-            android:id="@+id/tvTax"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tax_label"/>
+            <TextView
+                android:id="@+id/tvOvertimePay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/overtime_pay_label"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/tvTotalPay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/total_pay_label"
+                android:textSize="22sp"/>
+            <TextView
+                android:id="@+id/tvTax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/tax_label"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>
