@@ -10,6 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter Work Details"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"/>
+
         <!-- Inputs -->
         <EditText
             android:id="@+id/etHours"
@@ -48,6 +57,7 @@
             android:fontFamily="sans-serif-medium"/>
 
 
+
         <!-- Results grouped in a container -->
         <LinearLayout
             android:orientation="vertical"
@@ -57,6 +67,16 @@
             android:background="#FFFFFF"
             android:elevation="4dp"
             android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calculation Results"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-medium"/>
 
             <TextView
                 android:id="@+id/tvPay"
@@ -73,13 +93,15 @@
                 android:layout_marginTop="6dp"
                 android:text="@string/overtime_pay_label"
                 android:textSize="18sp"/>
+
             <TextView
                 android:id="@+id/tvTotalPay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:text="@string/total_pay_label"
-                android:textSize="22sp"/>
+                android:textSize="18sp"/>
+
             <TextView
                 android:id="@+id/tvTax"
                 android:layout_width="match_parent"
@@ -87,7 +109,6 @@
                 android:layout_marginTop="6dp"
                 android:text="@string/tax_label"
                 android:textSize="18sp"/>
-
         </LinearLayout>
 
     </LinearLayout>
