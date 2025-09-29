@@ -36,7 +36,26 @@ public class MainActivity extends AppCompatActivity {
         tvTax = findViewById(R.id.tvTax);
 
         Button btnCalculate = findViewById(R.id.btnCalculate);
-
+        btnCalculate.setOnClickListener(v -> calculateAndLog());
     }
 
+    private void calculateAndLog() {
+        Double hours = parseDouble(etHours.getText().toString());
+        Double rate = parseDouble(etRate.getText().toString());
+
+        if (hours == null || rate == null || hours <= 0.0 || rate <= 0.0) {
+            Toast.makeText(this, getString(R.string.msg_invalid), Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        Toast.makeText(this, getString(R.string.msg_logged), Toast.LENGTH_SHORT).show();
+    }
+
+    private static Double parseDouble(String s) {
+        try {
+            return Double.parseDouble(s.trim());
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }
