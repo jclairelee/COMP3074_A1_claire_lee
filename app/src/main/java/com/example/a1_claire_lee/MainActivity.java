@@ -1,3 +1,5 @@
+
+
 package com.example.a1_claire_lee;
 
 import android.content.Intent;
@@ -21,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvOvertimePay;
     private TextView tvTotalPay;
     private TextView tvTax;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,20 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.msg_invalid), Toast.LENGTH_LONG).show();
             return;
         }
+
+        double basePay, overtimePay, totalPay;
+
+        if (hours <= 40.0) {
+            basePay = hours * rate;
+            overtimePay = 0.0;
+            totalPay = basePay;
+        } else {
+            basePay = 40.0 * rate;
+            overtimePay = (hours - 40.0) * rate * 1.5;
+            totalPay = basePay + overtimePay;
+        }
+
+        double tax = totalPay * 0.18;
 
         Toast.makeText(this, getString(R.string.msg_logged), Toast.LENGTH_SHORT).show();
     }
